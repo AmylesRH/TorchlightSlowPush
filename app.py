@@ -1,18 +1,13 @@
 from flask import Flask, render_template
-from mysql.connector import connect, Error
+from mysql.connector import (connection)
 app = Flask(__name__)
 
+
+cnx = connection.MySQLConnection(user='userBO1', password='hmsgWMNPMxggQLh4',
+                                 host='127.0.0.1',
+                                 database='ccsdataplatformdb')
+cnx.close()
 cursor = connection.cursor() #create a cursor so that you can interact with the database
-def connect():
-    try:
-        mysql.connector.connect(host="127.0.0.1",
-                                user="userBO1",
-                                password="hmsgWMNPMxggQLh4",
-                                database="ccsdataplatformdb",
-
-    except Error as e:
-        print(e)
-
 
 select_product = """
  SELECT *
